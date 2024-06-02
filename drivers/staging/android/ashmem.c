@@ -879,7 +879,7 @@ static int __init ashmem_init(void)
 	ashmem_range_cachep = kmem_cache_create("ashmem_range_cache",
 						sizeof(struct ashmem_range),
 						0, 0, NULL);
-	if (unlikely(!ashmem_range_cachep)) {
+	if (!ashmem_range_cachep) {
 		pr_err("failed to create slab cache\n");
 		goto out_free1;
 	}
